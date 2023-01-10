@@ -2,7 +2,10 @@
 using HtmlAgilityPack;
 using MainCore.Enums;
 using MainCore.Errors;
+<<<<<<< HEAD
 using MainCore.Helper.Interface;
+=======
+>>>>>>> master
 using MainCore.Models.Runtime;
 using MainCore.Tasks.Update;
 using ModuleCore.Parser;
@@ -16,13 +19,19 @@ namespace MainCore.Tasks.Misc
 {
     public class NPCTask : VillageBotTask
     {
+<<<<<<< HEAD
         private readonly INavigateHelper _navigateHelper;
 
+=======
+>>>>>>> master
         private readonly ISystemPageParser _systemPageParser;
 
         public NPCTask(int villageId, int accountId, CancellationToken cancellationToken = default) : base(villageId, accountId, cancellationToken)
         {
+<<<<<<< HEAD
             _navigateHelper = Locator.Current.GetService<INavigateHelper>();
+=======
+>>>>>>> master
             _systemPageParser = Locator.Current.GetService<ISystemPageParser>();
         }
 
@@ -110,7 +119,10 @@ namespace MainCore.Tasks.Misc
                 var result = _navigateHelper.SwitchTab(AccountId, 0);
                 if (result.IsFailed) return result.WithError(new Trace(Trace.TraceMessage()));
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
             return Result.Ok();
         }
 

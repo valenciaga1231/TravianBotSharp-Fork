@@ -16,7 +16,10 @@ namespace MainCore.Tasks.Sim
     public class UpgradeBuilding : VillageBotTask
     {
         private readonly IUpgradeBuildingHelper _upgradeBuildingHelper;
+<<<<<<< HEAD
         private readonly INavigateHelper _navigateHelper;
+=======
+>>>>>>> master
         private readonly IUpdateHelper _updateHelper;
         private readonly IPlanManager _planManager;
 
@@ -24,7 +27,10 @@ namespace MainCore.Tasks.Sim
         {
             _upgradeBuildingHelper = Locator.Current.GetService<IUpgradeBuildingHelper>();
 
+<<<<<<< HEAD
             _navigateHelper = Locator.Current.GetService<INavigateHelper>();
+=======
+>>>>>>> master
             _updateHelper = Locator.Current.GetService<IUpdateHelper>();
             _planManager = Locator.Current.GetService<IPlanManager>();
         }

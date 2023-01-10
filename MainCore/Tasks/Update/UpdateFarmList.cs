@@ -10,13 +10,19 @@ namespace MainCore.Tasks.Update
 {
     public class UpdateFarmList : AccountBotTask
     {
+<<<<<<< HEAD
         private readonly INavigateHelper _navigateHelper;
+=======
+>>>>>>> master
         private readonly IUpdateHelper _updateHelper;
         private readonly ICheckHelper _checkHelper;
 
         public UpdateFarmList(int accountId, CancellationToken cancellationToken = default) : base(accountId, cancellationToken)
         {
+<<<<<<< HEAD
             _navigateHelper = Locator.Current.GetService<INavigateHelper>();
+=======
+>>>>>>> master
             _updateHelper = Locator.Current.GetService<IUpdateHelper>();
             _checkHelper = Locator.Current.GetService<ICheckHelper>();
         }

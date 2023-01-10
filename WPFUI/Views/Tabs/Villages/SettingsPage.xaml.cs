@@ -55,6 +55,7 @@ namespace WPFUI.Views.Tabs.Villages
 
                 this.Bind(ViewModel, vm => vm.Settings.IsUpgradeTroop, v => v.TroopUpgradeCheckBox.IsChecked).DisposeWith(d);
                 this.OneWayBind(ViewModel, vm => vm.TroopUpgrade, v => v.TroopUpgrade.ViewModel.Troops).DisposeWith(d);
+<<<<<<< HEAD
 
                 this.Bind(ViewModel, vm => vm.Settings.IsSendExcessResources, v => v.IsSendExcessResources.IsChecked).DisposeWith(d);
                 this.Bind(ViewModel, vm => vm.Settings.SendExcessWood, v => v.SendOutLimit.ViewModel.Wood).DisposeWith(d);
@@ -75,6 +76,8 @@ namespace WPFUI.Views.Tabs.Villages
                 this.Bind(ViewModel, vm => vm.Settings.SendFromY, v => v.SendFrom.ViewModel.YCoordinate).DisposeWith(d);
                 this.BindCommand(ViewModel, vm => vm.StartResourcesCommand, v => v.StartSendingResources).DisposeWith(d);
 
+=======
+>>>>>>> master
             });
         }
     }

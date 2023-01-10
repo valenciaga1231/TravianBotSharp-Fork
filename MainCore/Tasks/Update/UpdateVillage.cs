@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 using FluentResults;
+=======
+﻿using FluentResults;
+>>>>>>> master
 using MainCore.Errors;
 using MainCore.Helper.Interface;
 using Splat;
@@ -8,12 +12,18 @@ namespace MainCore.Tasks.Update
 {
     public class UpdateVillage : VillageBotTask
     {
+<<<<<<< HEAD
         private readonly INavigateHelper _navigateHelper;
+=======
+>>>>>>> master
         private readonly IUpdateHelper _updateHelper;
 
         public UpdateVillage(int villageId, int accountId, CancellationToken cancellationToken = default) : base(villageId, accountId, cancellationToken)
         {
+<<<<<<< HEAD
             _navigateHelper = Locator.Current.GetService<INavigateHelper>();
+=======
+>>>>>>> master
             _updateHelper = Locator.Current.GetService<IUpdateHelper>();
         }
 

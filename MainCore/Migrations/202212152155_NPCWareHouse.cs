@@ -7,8 +7,12 @@ namespace MainCore.Migrations
     {
         public override void Down()
         {
+<<<<<<< HEAD
             Delete
                 .Column("IsAutoNPCWarehouse").FromTable("VillagesSettings");
+=======
+            Execute.Sql("ALTER TABLE 'VillagesSettings' DROP COLUMN 'IsAutoNPCWarehouse';");
+>>>>>>> master
         }
 
         public override void Up()

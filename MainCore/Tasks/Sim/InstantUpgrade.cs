@@ -12,12 +12,18 @@ namespace MainCore.Tasks.Sim
 {
     public class InstantUpgrade : VillageBotTask
     {
+<<<<<<< HEAD
         private readonly INavigateHelper _navigateHelper;
+=======
+>>>>>>> master
         private readonly IClickHelper _clickHelper;
 
         public InstantUpgrade(int villageId, int accountId, CancellationToken cancellationToken = default) : base(villageId, accountId, cancellationToken)
         {
+<<<<<<< HEAD
             _navigateHelper = Locator.Current.GetService<INavigateHelper>();
+=======
+>>>>>>> master
             _clickHelper = Locator.Current.GetService<IClickHelper>();
         }
 

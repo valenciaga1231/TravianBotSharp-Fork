@@ -107,6 +107,7 @@ namespace MainCore.Services.Implementations
             var task = _tasksDict[index].First();
 
             if (task.ExecuteAt > DateTime.Now) return;
+<<<<<<< HEAD
 
             var retryPolicy = Policy.HandleResult<Result>(x => x.HasError<Retry>())
                 .WaitAndRetry(retryCount: 3, sleepDurationProvider: _ => TimeSpan.FromSeconds(5), onRetry: (error, _, retryCount, _) =>
@@ -139,6 +140,54 @@ namespace MainCore.Services.Implementations
             {
                 UpdateAccountStatus(index, AccountStatus.Paused);
                 _logManager.Warning(index, $"There is something wrong. Bot is pausing", task);
+=======
+
+            var retryPolicy = Policy
+                .Handle<Exception>()
+                .OrResult<Result>(x => x.HasError<Retry>())
+                .WaitAndRetry(retryCount: 3, sleepDurationProvider: _ => TimeSpan.FromSeconds(5), onRetry: (error, _, retryCount, _) =>
+                {
+                    _logManager.Warning(index, $"There is something wrong.");
+                    if (error.Exception is null)
+                    {
+                        var errors = error.Result.Reasons.Select(x => x.Message).ToList();
+                        _logManager.Error(index, string.Join(Environment.NewLine, errors));
+                    }
+                    else
+                    {
+                        var exception = error.Exception;
+                        _logManager.Error(index, exception.Message, exception);
+                    }
+                    _logManager.Warning(index, $"Retry {retryCount} for {task.GetName()}");
+
+                    if (task is AccountBotTask accountTask)
+                    {
+                        accountTask.RefreshChrome();
+                    }
+                });
+
+            _taskExecuting[index] = true;
+            task.Stage = TaskStage.Executing;
+            _eventManager.OnTaskUpdate(index);
+            var cacheExecuteTime = task.ExecuteAt;
+
+            var cts = new CancellationTokenSource();
+            _cancellationTokenSources[index] = cts;
+            task.CancellationToken = cts.Token;
+
+            _cancellationTokenSources[index] = cts;
+
+            _logManager.Information(index, $"{task.GetName()} is started");
+            ///===========================================================///
+            var poliResult = retryPolicy.ExecuteAndCapture(task.Execute);
+            ///===========================================================///
+            _logManager.Information(index, $"{task.GetName()} is finished");
+
+            if (poliResult.FinalException is not null)
+            {
+                UpdateAccountStatus(index, AccountStatus.Paused);
+                _logManager.Warning(index, $"There is something wrong. Bot is pausing. Last exception is", task);
+>>>>>>> master
                 var ex = poliResult.FinalException;
                 _logManager.Error(index, ex.Message, ex);
             }

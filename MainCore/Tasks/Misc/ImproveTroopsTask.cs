@@ -2,7 +2,10 @@
 using HtmlAgilityPack;
 using MainCore.Enums;
 using MainCore.Errors;
+<<<<<<< HEAD
 using MainCore.Helper.Interface;
+=======
+>>>>>>> master
 using MainCore.Tasks.Update;
 using OpenQA.Selenium;
 using Splat;

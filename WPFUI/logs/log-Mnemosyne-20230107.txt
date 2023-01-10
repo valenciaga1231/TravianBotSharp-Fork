@@ -1,0 +1,35 @@
+12:54:20 [INF] LoginTask is started
+12:54:21 [INF] LoginTask is finished
+12:54:22 [INF] UpdateInfo is started
+12:54:22 [INF] UpdateInfo is finished
+12:54:24 [INF] UpdateBothDorf in 001 is started
+12:54:26 [INF] UpdateBothDorf in 001 is finished
+12:54:27 [INF] UpdateBothDorf in 000 is started
+12:54:29 [INF] UpdateBothDorf in 000 is finished
+12:54:30 [INF] UpdateBothDorf in 002 is started
+12:54:32 [INF] UpdateBothDorf in 002 is finished
+12:54:33 [INF] UpdateBothDorf in 003 is started
+12:54:35 [INF] UpdateBothDorf in 003 is finished
+12:55:06 [INF] UpgradeBuilding in 003 is started
+12:55:06 [INF] Next building will be contructed: AllResources - BasedOnLevel - level 7.
+12:55:06 [INF] Next building will be contructed: Cropland - level 7.
+12:55:08 [INF] Amount of currently building is equal with maximum building can build in same time
+12:55:09 [INF] Next building will be contructed after Residence - level 10 complete. (1/7/2023 1:35:32 PM)
+12:55:09 [INF] UpgradeBuilding in 003 is finished
+12:56:12 [INF] UpgradeBuilding in 001 is started
+12:56:12 [INF] Amount of currently building is equal with maximum building can build in same time
+12:56:12 [INF] Next building will be contructed after Barracks - level 3 complete. (1/7/2023 12:56:42 PM)
+12:56:12 [INF] UpgradeBuilding in 001 is finished
+12:56:25 [INF] UpgradeBuilding in 002 is started
+12:56:25 [INF] Amount of currently building is equal with maximum building can build in same time
+12:56:26 [INF] Next building will be contructed after Stable - level 9 complete. (1/7/2023 1:03:24 PM)
+12:56:26 [INF] UpgradeBuilding in 002 is finished
+12:56:42 [INF] UpgradeBuilding in 001 is started
+12:56:42 [INF] Next building will be contructed: Palisade - level 12.
+12:56:47 [INF] Amount of currently building is equal with maximum building can build in same time
+12:56:48 [INF] Next building will be contructed after Barracks - level 4 complete. (1/7/2023 1:09:13 PM)
+12:56:48 [INF] UpgradeBuilding in 001 is finished
+12:59:10 [INF] LoginTask is started
+12:59:10 [INF] LoginTask is finished
+12:59:11 [INF] UpdateInfo is started
+12:59:11 [INF] UpdateInfo is finished

@@ -1,5 +1,4 @@
 ﻿using MainCore.Enums;
-using MainCore.Helper;
 using MainCore.Models.Database;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -239,6 +238,8 @@ namespace MainCore
                 IsDontLoadImage = false,
                 IsMinimized = false,
                 IsAutoAdventure = false,
+                FarmIntervalMax = 610,
+                FarmIntervalMin = 590,
             });
             Heroes.Add(new Hero { AccountId = accountId });
 
@@ -318,8 +319,6 @@ namespace MainCore
             {
                 Id = farmId,
                 IsActive = false,
-                IntervalMin = 590,
-                IntervalMax = 610,
             });
         }
 
@@ -353,6 +352,8 @@ namespace MainCore
                         IsDontLoadImage = false,
                         IsMinimized = false,
                         IsAutoAdventure = false,
+                        FarmIntervalMax = 610,
+                        FarmIntervalMin = 590,
                     });
                 }
             }
@@ -418,8 +419,6 @@ namespace MainCore
                     {
                         Id = farmId,
                         IsActive = false,
-                        IntervalMin = 590,
-                        IntervalMax = 610,
                     });
                 }
             }
@@ -527,6 +526,7 @@ namespace MainCore
                 KeyValuePair.Create(202210271504,"NPCForWarhouse"),
                 KeyValuePair.Create(2022102716038,"IgnoreRomanAdvantage"),
                 KeyValuePair.Create(202212152155,"NPCWarehouse"),
+                KeyValuePair.Create(202212301138,"FarmSettings"),
             };
             foreach (var migration in migrations)
             {
