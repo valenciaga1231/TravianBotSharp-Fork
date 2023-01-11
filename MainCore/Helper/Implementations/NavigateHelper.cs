@@ -163,10 +163,6 @@ namespace MainCore.Helper.Implementations
                 var result = AfterClicking(accountId);
                 if (result.IsFailed) return result.WithError(new Trace(Trace.TraceMessage()));
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> master
             return Result.Ok();
         }
 

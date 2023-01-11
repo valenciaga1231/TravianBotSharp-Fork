@@ -2,10 +2,6 @@
 using HtmlAgilityPack;
 using MainCore.Enums;
 using MainCore.Errors;
-<<<<<<< HEAD
-using MainCore.Helper.Interface;
-=======
->>>>>>> master
 using MainCore.Tasks.Update;
 using OpenQA.Selenium;
 using Splat;
@@ -19,11 +15,11 @@ namespace MainCore.Tasks.Misc
     {
         private TroopEnums _troop;
         public TroopEnums Troop => _troop;
-        private readonly INavigateHelper _navigateHelper;
+        // private readonly INavigateHelper _navigateHelper;
 
         public ImproveTroopsTask(int villageId, int accountId, CancellationToken cancellationToken = default) : base(villageId, accountId, cancellationToken)
         {
-            _navigateHelper = Locator.Current.GetService<INavigateHelper>();
+            // _navigateHelper = Locator.Current.GetService<INavigateHelper>();
         }
 
         public override Result Execute()

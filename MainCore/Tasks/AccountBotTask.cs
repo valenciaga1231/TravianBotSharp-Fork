@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-﻿using MainCore.Services.Interface;
-=======
-﻿using MainCore.Helper.Interface;
+using MainCore.Helper.Interface;
 using MainCore.Services.Interface;
 using Splat;
 using System;
->>>>>>> master
 using System.Threading;
 
 namespace MainCore.Tasks
@@ -14,21 +10,14 @@ namespace MainCore.Tasks
     {
         private readonly int _accountId;
         public int AccountId => _accountId;
-<<<<<<< HEAD
-        protected IChromeBrowser _chromeBrowser;
-=======
         protected readonly IChromeBrowser _chromeBrowser;
         protected readonly INavigateHelper _navigateHelper;
->>>>>>> master
 
         public AccountBotTask(int accountId, CancellationToken cancellationToken = default) : base(cancellationToken)
         {
             _accountId = accountId;
             _chromeBrowser = _chromeManager.Get(accountId);
-<<<<<<< HEAD
-=======
             _navigateHelper = Locator.Current.GetService<INavigateHelper>();
->>>>>>> master
         }
 
         public override string GetName()
@@ -36,10 +25,6 @@ namespace MainCore.Tasks
             if (string.IsNullOrEmpty(_name))
             {
                 _name = GetType().Name;
-<<<<<<< HEAD
-            }
-            return _name;
-=======
             }
             return _name;
         }
@@ -55,7 +40,6 @@ namespace MainCore.Tasks
             {
                 _navigateHelper.ToDorf2(AccountId);
             }
->>>>>>> master
         }
     }
 }

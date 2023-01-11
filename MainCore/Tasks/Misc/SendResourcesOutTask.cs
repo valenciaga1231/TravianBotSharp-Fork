@@ -13,7 +13,7 @@ namespace MainCore.Tasks.Misc
 {
     public class SendResourcesOutTask : VillageBotTask
     {
-        private readonly INavigateHelper _navigateHelper;
+        // private readonly INavigateHelper _navigateHelper;
         private readonly IUpdateHelper _updateHelper;
 
         private long[] _toSend = new long[4];
@@ -23,7 +23,7 @@ namespace MainCore.Tasks.Misc
 
         public SendResourcesOutTask(int villageId, int accountId) : base(villageId, accountId)
         {
-            _navigateHelper = Locator.Current.GetService<INavigateHelper>();
+            // _navigateHelper = Locator.Current.GetService<INavigateHelper>();
             _updateHelper = Locator.Current.GetService<IUpdateHelper>();
         }
 

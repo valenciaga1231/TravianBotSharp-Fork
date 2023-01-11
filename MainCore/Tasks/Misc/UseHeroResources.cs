@@ -11,18 +11,10 @@ namespace MainCore.Tasks.Misc
 {
     public class UseHeroResources : VillageBotTask
     {
-<<<<<<< HEAD
-        private readonly INavigateHelper _navigateHelper;
-=======
->>>>>>> master
         private readonly IHeroHelper _heroHelper;
 
         public UseHeroResources(int villageId, int accountId, List<(HeroItemEnums, int)> items, CancellationToken cancellationToken = default) : base(villageId, accountId, cancellationToken)
         {
-<<<<<<< HEAD
-            _navigateHelper = Locator.Current.GetService<INavigateHelper>();
-=======
->>>>>>> master
             _heroHelper = Locator.Current.GetService<IHeroHelper>();
             _items = items;
         }

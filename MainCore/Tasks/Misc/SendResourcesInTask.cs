@@ -15,7 +15,7 @@ namespace MainCore.Tasks.Misc
     public class SendResourcesInTask : VillageBotTask
     {
 
-        private readonly INavigateHelper _navigateHelper;
+        // private readonly INavigateHelper _navigateHelper;
         private readonly IUpdateHelper _updateHelper;
 
         private long[] _toSend = new long[4];
@@ -27,7 +27,7 @@ namespace MainCore.Tasks.Misc
 
         public SendResourcesInTask(int villageId, int accountId) : base(villageId, accountId)
         {
-            _navigateHelper = Locator.Current.GetService<INavigateHelper>();
+            // _navigateHelper = Locator.Current.GetService<INavigateHelper>();
             _updateHelper = Locator.Current.GetService<IUpdateHelper>();
         }
 
@@ -211,6 +211,18 @@ namespace MainCore.Tasks.Misc
             var merchantsAvailable = merchantInfo.Descendants("div").FirstOrDefault(x => x.HasClass("traderCount")).Descendants("span").FirstOrDefault(x => x.HasClass("merchantsAvailable")).GetDirectInnerText();
             this._merchantsAvailable = new string(merchantsAvailable.Where(c => char.IsLetter(c) || char.IsDigit(c)).ToArray());
 
+
+            // Refresh sending village resources
+            using var context = _contextFactory.CreateDbContext();
+            _updateHelper.UpdateResource(AccountId, this._sendFromVillageId);
+            var currentResources = context.VillagesResources.Find(this._sendFromVillageId);
+
+            if (this._toSend[0] > currentResources.Wood) this._toSend[0] = currentResources.Wood;
+            if (this._toSend[1] > currentResources.Clay) this._toSend[1] = currentResources.Clay;
+            if (this._toSend[2] > currentResources.Iron) this._toSend[2] = currentResources.Iron;
+            if (this._toSend[3] > currentResources.Crop) this._toSend[3] = currentResources.Crop;
+            this._toSendSum = this._toSend.Sum();
+
             if (Int16.Parse(this._merchantsAvailable) == 0)
             {
                 _logManager.Information(AccountId, $"No merchant available to send resources. Will Try again later.", this);
@@ -233,21 +245,20 @@ namespace MainCore.Tasks.Misc
         private void OptimizeMerchants()
         {
 
-            // Refresh sending village resources
-            using var context = _contextFactory.CreateDbContext();
-            _updateHelper.UpdateResource(AccountId, this._sendFromVillageId);
-            var currentResources = context.VillagesResources.Find(this._sendFromVillageId);
+            // // Refresh sending village resources
+            // using var context = _contextFactory.CreateDbContext();
+            // _updateHelper.UpdateResource(AccountId, this._sendFromVillageId);
+            // var currentResources = context.VillagesResources.Find(this._sendFromVillageId);
 
-            if (this._toSend[0] > currentResources.Wood) this._toSend[0] = currentResources.Wood;
-            if (this._toSend[1] > currentResources.Clay) this._toSend[1] = currentResources.Clay;
-            if (this._toSend[2] > currentResources.Iron) this._toSend[2] = currentResources.Iron;
-            if (this._toSend[3] > currentResources.Crop) this._toSend[3] = currentResources.Crop;
-            this._toSendSum = this._toSend.Sum();
+            // if (this._toSend[0] > currentResources.Wood) this._toSend[0] = currentResources.Wood;
+            // if (this._toSend[1] > currentResources.Clay) this._toSend[1] = currentResources.Clay;
+            // if (this._toSend[2] > currentResources.Iron) this._toSend[2] = currentResources.Iron;
+            // if (this._toSend[3] > currentResources.Crop) this._toSend[3] = currentResources.Crop;
+            // this._toSendSum = this._toSend.Sum();
 
             int _toSendSumInt = (int)_toSendSum;
             var merchantsNeeded = _toSendSumInt / Int64.Parse(this._oneMerchantSize);
             if (merchantsNeeded > Int64.Parse(this._merchantsAvailable)) merchantsNeeded = Int64.Parse(this._merchantsAvailable);
-
 
             while (this._toSendSum != Int64.Parse(this._oneMerchantSize) * merchantsNeeded)
             {
@@ -273,6 +284,7 @@ namespace MainCore.Tasks.Misc
                 }
                 this._toSendSum = this._toSend.Sum();
             }
+
 
         }
 

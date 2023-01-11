@@ -12,20 +12,12 @@ namespace MainCore.Tasks.Update
 {
     public class UpdateAdventures : AccountBotTask
     {
-<<<<<<< HEAD
-        private readonly INavigateHelper _navigateHelper;
-=======
->>>>>>> master
         private readonly IUpdateHelper _updateHelper;
 
         private readonly ISystemPageParser _systemPageParser;
 
         public UpdateAdventures(int accountId, CancellationToken cancellationToken = default) : base(accountId, cancellationToken)
         {
-<<<<<<< HEAD
-            _navigateHelper = Locator.Current.GetService<INavigateHelper>();
-=======
->>>>>>> master
             _updateHelper = Locator.Current.GetService<IUpdateHelper>();
             _systemPageParser = Locator.Current.GetService<ISystemPageParser>();
         }

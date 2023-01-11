@@ -1,24 +1,14 @@
 ﻿using FluentResults;
 using MainCore.Errors;
-<<<<<<< HEAD
-using MainCore.Helper.Interface;
-using Splat;
-=======
->>>>>>> master
 using System.Threading;
 
 namespace MainCore.Tasks.Update
 {
     public class UpdateDorf1 : VillageBotTask
     {
-<<<<<<< HEAD
-        private readonly INavigateHelper _navigateHelper;
-
-=======
->>>>>>> master
         public UpdateDorf1(int villageId, int accountId, CancellationToken cancellationToken = default) : base(villageId, accountId, cancellationToken)
         {
-            _navigateHelper = Locator.Current.GetService<INavigateHelper>();
+            // _navigateHelper = Locator.Current.GetService<INavigateHelper>();
         }
 
         public override Result Execute()

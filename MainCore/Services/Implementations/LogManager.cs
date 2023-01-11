@@ -106,11 +106,7 @@ namespace MainCore.Services.Implementations
                     Level = LevelEnum.Error,
                     Message = $"{message}",
                 });
-<<<<<<< HEAD
-                _loggers[accountId].Error(message);
-=======
                 _loggers[accountId].Error("{message}", message);
->>>>>>> master
             }
             else
             {
@@ -120,11 +116,7 @@ namespace MainCore.Services.Implementations
                     Level = LevelEnum.Error,
                     Message = $"{message}\n{error}",
                 });
-<<<<<<< HEAD
-                _loggers[accountId].Error(message, error);
-=======
                 _loggers[accountId].Error(error, "{message}", message);
->>>>>>> master
             }
         }
 
